@@ -1,0 +1,10 @@
+[Unit]
+Description=Home Assistant venv
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart={{ alemuro_homeassistant_path }}/.virtualenv/bin/hass -c {{ alemuro_homeassistant_path }}
+
+[Install]
+WantedBy=multi-user.target

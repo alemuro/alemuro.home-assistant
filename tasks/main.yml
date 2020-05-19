@@ -1,0 +1,44 @@
+
+- name: Ensure python3 is installed
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - python3
+    - python3-dev
+    - python3-venv
+    - python3-pip
+    - libffi-dev
+    - "{{ alemuro_homeassistant_extra_apt_packages }}"
+
+- name: Ensure home assistant folder exists
+  file:
+    path: "{{ alemuro_homeassistant_path }}/.virtualenv"
+    state: directory
+
+- name: Ensure home assistant is stopped
+  systemd:
+    name: home-assistant
+    state: stopped
+  when: alemuro_homeassistant_force_upgrade
+
+- name: Ensure current virtualenv is removed
+  file:
+    path: "{{ alemuro_homeassistant_path }}/.virtualenv"
+    state: absent
+  when: alemuro_homeassistant_force_upgrade
+
+- name: Ensure homeassistant is installed
+  pip:
+    virtualenv: "{{ alemuro_homeassistant_path }}/.virtualenv"
+    name: "{{ item }}"
+  with_items:
+    - homeassistant=={{ alemuro_homeassistant_version }}
+    - "{{ alemuro_homeassistant_extra_pip_packages }}"
+
+- name: Ensure SystemD unit is configured
+  template:
+    src: home-assistant.service.j2
+    dest: /etc/systemd/system/home-assistant.service
+  notify:
+    - systemctl daemon-reload
+    - service restart home-assistant
