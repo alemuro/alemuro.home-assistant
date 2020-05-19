@@ -1,38 +1,43 @@
-Role Name
+alemuro.home-assistant
 =========
 
-A brief description of the role goes here.
-
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This role installs Home Assistant using the Python3 virtualenv way. It creates a folder and installs the dependencies needed. Sometimes we need to install extra packages, like `mysql` when we want to use this as recorder engine, or `ffmpeg` package.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+| Name                                       | Default              | Description                                                                                           |
+|--------------------------------------------|----------------------|-------------------------------------------------------------------------------------------------------|
+| `alemuro_homeassistant_force_upgrade`      | *no*                 | Set `yes` if you wanna remove and recreate the `.virtualenv` folder                                   |
+| `alemuro_homeassistant_version`            | *0.109.6*            | Version to install. [Check available versions here](https://pypi.org/project/homeassistant/#history). |
+| `alemuro_homeassistant_path`               | */srv/homeassistant* | The folder where you wanna place the config of for home assistant                                     |
+| `alemuro_homeassistant_extra_pip_packages` | *[]*                 | A list of extra pip packages that you wanna install, like `netdisco`                                  |
+| `alemuro_homeassistant_extra_apt_packages` | *[]*                 | A list of extra apt packages that you wanna install, like `ffmpeg`                                    |
 
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
 ----------------
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
+```
+    - hosts: pi
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: alemuro.home-assistant }
+```
+
+Usage
+-----
+
+* Install:
+
+```
+$ ansible-galaxy -p roles alemuro.home-assistant
+```
+
 
 License
 -------
 
 BSD
 
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
