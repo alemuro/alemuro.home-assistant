@@ -1,4 +1,4 @@
-alemuro.home-assistant
+alemuro.homeassistant
 =========
 
 This role installs Home Assistant using the Python3 virtualenv way. It creates a folder and installs the dependencies needed. Sometimes we need to install extra packages, like `mysql` when we want to use this as recorder engine, or `ffmpeg` package.
@@ -23,7 +23,7 @@ Including an example of how to use your role (for instance, with variables passe
 ```
     - hosts: pi
       roles:
-         - { role: alemuro.home-assistant }
+         - { role: alemuro.homeassistant }
 ```
 
 Usage
@@ -32,7 +32,7 @@ Usage
 * Install:
 
 ```
-$ ansible-galaxy -p roles alemuro.home-assistant
+$ ansible-galaxy -p roles alemuro.homeassistant
 ```
 
 
