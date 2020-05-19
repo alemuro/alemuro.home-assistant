@@ -39,5 +39,4 @@ $ ansible-galaxy -p roles alemuro.home-assistant
 License
 -------
 
-BSD
-
+Apache License
