@@ -9,7 +9,7 @@ Role Variables
 | Name                                       | Default              | Description                                                                                           |
 |--------------------------------------------|----------------------|-------------------------------------------------------------------------------------------------------|
 | `alemuro_homeassistant_force_upgrade`      | *no*                 | Set `yes` if you wanna remove and recreate the `.virtualenv` folder                                   |
-| `alemuro_homeassistant_version`            | *0.109.6*            | Version to install. [Check available versions here](https://pypi.org/project/homeassistant/#history). |
+| `alemuro_homeassistant_version`            | *0.112.4*            | Version to install. [Check available versions here](https://pypi.org/project/homeassistant/#history). |
 | `alemuro_homeassistant_path`               | */srv/homeassistant* | The folder where you wanna place the config of for home assistant                                     |
 | `alemuro_homeassistant_extra_pip_packages` | *[]*                 | A list of extra pip packages that you wanna install, like `netdisco`                                  |
 | `alemuro_homeassistant_extra_apt_packages` | *[]*                 | A list of extra apt packages that you wanna install, like `ffmpeg`                                    |

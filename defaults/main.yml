@@ -1,6 +1,6 @@
 ---
 alemuro_homeassistant_force_upgrade: no
-alemuro_homeassistant_version: 0.109.6
+alemuro_homeassistant_version: 0.112.4
 alemuro_homeassistant_path: /srv/homeassistant
 alemuro_homeassistant_extra_pip_packages: []
 alemuro_homeassistant_extra_apt_packages: []

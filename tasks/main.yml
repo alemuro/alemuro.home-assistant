@@ -20,6 +20,8 @@
     name: home-assistant
     state: stopped
   when: alemuro_homeassistant_force_upgrade
+  notify:
+    - service restart home-assistant
 
 - name: Ensure current virtualenv is removed
   file:
